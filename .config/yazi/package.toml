@@ -1,0 +1,22 @@
+[[plugin.deps]]
+use = "uhs-robert/recycle-bin"
+rev = "82da16a"
+hash = "7383d80862d3cdcc85f8658dac7b90c2"
+
+[[plugin.deps]]
+use = "ZimCodes/lin-decompress"
+rev = "174c3ae"
+hash = "a921316c914f2d14e0febf4125f5dbae"
+
+[[plugin.deps]]
+use = "boydaihungst/gvfs"
+rev = "c5a0bb9"
+hash = "480fde69fef0bcaeb2c21a726f94412c"
+
+[[plugin.deps]]
+use = "barbanevosa/autosession"
+rev = "7a12b20"
+hash = "f9b76184511c983db7c6f719eea1e14d"
+
+[flavor]
+deps = []

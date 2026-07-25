@@ -1,0 +1,7 @@
+XKB_DEFAULT_LAYOUT=us,latam
+XKB_DEFAULT_OPTIONS=grp:win_space_toggle
+XCURSOR_THEME=Vimix-cursors
+XCURSOR_SIZE=24
+XMODIFIERS=@im=fcitx
+QT_IM_MODULE=fcitx
+WLR_RENDERER=vulkan

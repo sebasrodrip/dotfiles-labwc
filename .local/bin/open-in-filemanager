@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+TARGET_PATH=$(realpath "$1" 2>/dev/null || echo "$1")
+
+case "$XDG_CURRENT_DESKTOP" in
+  *labwc*)
+    # The 'env' command safely passes our secret variable through Konsole to Yazi
+    exec konsole -e env YAZI_SCRIPT_MODE=1 yazi "$TARGET_PATH"
+    ;;
+  *)
+    exec dolphin "$TARGET_PATH"
+    ;;
+esac

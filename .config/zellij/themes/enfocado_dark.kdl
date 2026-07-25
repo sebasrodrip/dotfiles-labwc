@@ -1,0 +1,151 @@
+// Theme: enfocado_dark (Zellij port)
+// Ported from the Alacritty theme: https://github.com/wuelnerdotexe/vim-enfocado
+//
+// Source palette (for reference / future tweaks):
+//   bg              #181818  ->  24  24  24
+//   fg              #b9b9b9  -> 185 185 185
+//   black           #3b3b3b  ->  59  59  59
+//   red             #ed4a46  -> 237  74  70
+//   green           #70b433  -> 112 180  51
+//   yellow          #dbb32d  -> 219 179  45
+//   blue            #368aeb  ->  54 138 235
+//   magenta         #eb6eb7  -> 235 110 183
+//   cyan            #3fc5b7  ->  63 197 183
+//   white           #b9b9b9  -> 185 185 185  (same as fg)
+//   bright_black    #777777  -> 119 119 119
+//   bright_red      #ff5e56  -> 255  94  86
+//   bright_green    #83c746  -> 131 199  70
+//   bright_yellow   #efc541  -> 239 197  65
+//   bright_blue     #4f9cfe  ->  79 156 254
+//   bright_magenta  #ff81ca  -> 255 129 202
+//   bright_cyan     #56d8c9  ->  86 216 201
+//   bright_white    #dedede  -> 222 222 222
+
+themes {
+    enfocado_dark {
+        text_unselected {
+            base 185 185 185
+            background 24 24 24
+            emphasis_0 219 179 45
+            emphasis_1 63 197 183
+            emphasis_2 112 180 51
+            emphasis_3 235 110 183
+        }
+        text_selected {
+            base 222 222 222
+            background 59 59 59
+            emphasis_0 239 197 65
+            emphasis_1 86 216 201
+            emphasis_2 131 199 70
+            emphasis_3 255 129 202
+        }
+        ribbon_unselected {
+            base 185 185 185
+            background 59 59 59
+            emphasis_0 237 74 70
+            emphasis_1 222 222 222
+            emphasis_2 119 119 119
+            emphasis_3 235 110 183
+        }
+        ribbon_selected {
+            base 24 24 24
+            background 54 138 235
+            emphasis_0 237 74 70
+            emphasis_1 219 179 45
+            emphasis_2 235 110 183
+            emphasis_3 59 59 59
+        }
+        table_title {
+            base 54 138 235
+            background 24 24 24
+            emphasis_0 219 179 45
+            emphasis_1 63 197 183
+            emphasis_2 112 180 51
+            emphasis_3 235 110 183
+        }
+        table_cell_unselected {
+            base 185 185 185
+            background 24 24 24
+            emphasis_0 219 179 45
+            emphasis_1 63 197 183
+            emphasis_2 112 180 51
+            emphasis_3 235 110 183
+        }
+        table_cell_selected {
+            base 222 222 222
+            background 59 59 59
+            emphasis_0 239 197 65
+            emphasis_1 86 216 201
+            emphasis_2 131 199 70
+            emphasis_3 255 129 202
+        }
+        list_unselected {
+            base 185 185 185
+            background 24 24 24
+            emphasis_0 219 179 45
+            emphasis_1 63 197 183
+            emphasis_2 112 180 51
+            emphasis_3 235 110 183
+        }
+        list_selected {
+            base 222 222 222
+            background 59 59 59
+            emphasis_0 239 197 65
+            emphasis_1 86 216 201
+            emphasis_2 131 199 70
+            emphasis_3 255 129 202
+        }
+        frame_unselected {
+            base 119 119 119
+            background 24 24 24
+            emphasis_0 219 179 45
+            emphasis_1 63 197 183
+            emphasis_2 235 110 183
+            emphasis_3 119 119 119
+        }
+        frame_selected {
+            base 54 138 235
+            background 24 24 24
+            emphasis_0 219 179 45
+            emphasis_1 63 197 183
+            emphasis_2 235 110 183
+            emphasis_3 119 119 119
+        }
+        frame_highlight {
+            base 255 129 202
+            background 24 24 24
+            emphasis_0 219 179 45
+            emphasis_1 237 74 70
+            emphasis_2 63 197 183
+            emphasis_3 112 180 51
+        }
+        exit_code_success {
+            base 112 180 51
+            background 24 24 24
+            emphasis_0 63 197 183
+            emphasis_1 24 24 24
+            emphasis_2 235 110 183
+            emphasis_3 59 59 59
+        }
+        exit_code_error {
+            base 237 74 70
+            background 24 24 24
+            emphasis_0 219 179 45
+            emphasis_1 24 24 24
+            emphasis_2 59 59 59
+            emphasis_3 59 59 59
+        }
+        multiplayer_user_colors {
+            player_1 237 74 70
+            player_2 112 180 51
+            player_3 219 179 45
+            player_4 54 138 235
+            player_5 235 110 183
+            player_6 63 197 183
+            player_7 255 94 86
+            player_8 131 199 70
+            player_9 239 197 65
+            player_10 79 156 254
+        }
+    }
+}

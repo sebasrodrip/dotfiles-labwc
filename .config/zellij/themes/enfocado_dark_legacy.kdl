@@ -1,0 +1,31 @@
+// Theme: enfocado_dark (Zellij legacy/simple theme spec)
+// Ported from the Alacritty theme: https://github.com/wuelnerdotexe/vim-enfocado
+//
+// This is Zellij's original, flat theme format -- still supported, but the
+// per-component spec (see enfocado_dark.kdl) is what the docs now recommend,
+// since Zellij derives every UI detail (tabs, selected rows, pane borders...)
+// from just these 11 colors on its own, rather than something you control
+// directly here.
+//
+// Values below are copied straight from the Alacritty TOML's "normal" row.
+//
+// One addition: Alacritty has no "orange" -- it isn't one of the 16 standard
+// ANSI colors, but Zellij's legacy spec expects one anyway. "#e47f3a" is a
+// blend of this theme's own red (#ed4a46) and yellow (#dbb32d), not a value
+// from your file -- swap it for anything you'd rather use.
+
+themes {
+    enfocado_dark {
+        fg      "#b9b9b9"
+        bg      "#181818"
+        black   "#3b3b3b"
+        red     "#ed4a46"
+        green   "#70b433"
+        yellow  "#dbb32d"
+        blue    "#368aeb"
+        magenta "#eb6eb7"
+        cyan    "#3fc5b7"
+        white   "#b9b9b9"
+        orange  "#e47f3a"
+    }
+}

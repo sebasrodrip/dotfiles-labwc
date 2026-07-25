@@ -1,0 +1,9 @@
+noctalia &
+wlr-randr --output DP-1 --mode 1920x1080@239.759995 --pos 1080,500 \
+            --output DP-2 --mode 1920x1080@60 --transform 270 --pos 0,0 &
+xrandr --output DP-1 --primary &
+systemctl --user --no-block start labwc-session.target &
+systemctl --user stop graphical-session.target &
+
+~/.local/bin/yazi-dbus.py &
+

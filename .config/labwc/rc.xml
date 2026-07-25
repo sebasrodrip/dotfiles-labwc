@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<labwc_config>
+  <!-- labwc theme -->
+  <theme>
+    <name>noctalia</name>
+  </theme>
+  
+  <!-- Keyboard binds -->
+  <keyboard>
+    <!-- Include default labwc keybinds -->
+	<default />
+		<!-- Custom keys -->	
+		<keybind key="W-enter"><action name="Execute" command="alacritty" /></keybind>
+		<keybind key="W-e"><action name="Execute" command="konsole -e yazi" /></keybind>
+		<keybind key="f10"><action name="Execute" command="wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" /></keybind>
+		<keybind key="C-S-backslash"><action name="Execute" command="/home/sebastian/Scripts/save-replay.sh" /></keybind>
+		<keybind key="C-S-bracketleft"><action name="Execute" command="/home/sebastian/Scripts/start-replay.sh" /></keybind>
+		<keybind key="C-S-bracketright"><action name="Execute" command="/home/sebastian/Scripts/stop-replay.sh" /></keybind>
+
+		<!-- Core keys -->
+		<keybind key="Super_L" onRelease="yes"><action name="Execute"><command>noctalia msg panel-toggle launcher</command></action></keybind>
+		<keybind key="W-s"><action name="Execute"><command>noctalia msg panel-toggle control-center</command></action></keybind>
+		<keybind key="W-i"><action name="Execute"><command>noctalia msg settings-toggle</command></action></keybind>
+
+		<!-- Media keys -->
+		<keybind key="XF86AudioRaiseVolume"><action name="Execute"><command>noctalia msg volume-up</command></action></keybind>
+		<keybind key="XF86AudioLowerVolume"><action name="Execute"><command>noctalia msg volume-down</command></action></keybind>
+		<keybind key="XF86AudioMute"><action name="Execute"><command>noctalia msg volume-mute</command></action></keybind>
+		<keybind key="XF86MonBrightnessUp"><action name="Execute"><command>noctalia msg brightness-up</command></action></keybind>
+		<keybind key="XF86MonBrightnessDown"><action name="Execute"><command>noctalia msg brightness-down</command></action></keybind>
+
+		<!-- Screenshots-->
+		<keybind key="W-S-s"><action name="Execute" command="/home/sebastian/Scripts/screenshot.sh select" /></keybind>
+		<keybind key="W-S-h"><action name="Execute" command="~/Scripts/ocr.sh horiz" /></keybind>
+		<keybind key="W-S-v"><action name="Execute" command="~/Scripts/ocr.sh vert" /></keybind>
+  </keyboard>
+  <!-- End of keyboard binds -->
+  <!-- Change mouse sensitivty -->
+  <libinput>
+  	<device category="default">
+  		<pointerSpeed>-0.8</pointerSpeed>
+  	</device>
+  	</libinput>
+  
+  <core>
+    <gap>10</gap>
+    <allowTearing>yes</allowTearing>
+    <adaptiveSync>fullscreen</adaptiveSync>
+  </core>
+  <!-- Thumbnail-based window switcher -->
+  <windowSwitcher preview="no" outlines="yes">
+    <osd style="thumbnail"/>
+  </windowSwitcher>
+  <!-- End of window switcher -->
+
+  <!-- Window Focus setting -->
+  <focus>
+  	<followMouse>yes</followMouse>
+  </focus>  
+</labwc_config>

@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<openbox_menu>
+<menu id="root-menu" label="">
+  <item label="Firefox" icon="firefox"><action name="Execute" command="firefox"/></item>
+  <item label="Discord" icon="discord"><action name="Execute" command="discord  --enable-features=UseOzonePlatform --ozone-platform=wayland"/></item>
+  <item label="Steam" icon="steam"><action name="Execute" command="steam"/></item>
+  <item label="SubTUI" icon="subtui"><action name="Execute" command="konsole -e subtui"/></item>
+  <item label="Reconfigure"><action name="Reconfigure"/></item>
+  <item label="Exit"><action name="Exit"/></item>
+</menu>
+</openbox_menu>
