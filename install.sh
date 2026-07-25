@@ -15,10 +15,29 @@ link() {
     echo "linked $dst -> $src"
 }
 
+# Window manager
 link "$DOTFILES/.config/labwc"    ~/.config/labwc
-link "$DOTFILES/.config/yazi"     ~/.config/yazi
+
+# Shell / terminal
+link "$DOTFILES/.config/fish"     ~/.config/fish
+link "$DOTFILES/.config/zellij"  ~/.config/zellij
+
+# File manager
+link "$DOTFILES/.config/yazi"    ~/.config/yazi
+
+# Shell/desktop UI
 link "$DOTFILES/.config/noctalia" ~/.config/noctalia
 
+# Media / gaming
+link "$DOTFILES/.config/mpv"       ~/.config/mpv
+link "$DOTFILES/.config/mangohud"  ~/.config/mangohud
+link "$DOTFILES/.config/millennium" ~/.config/millennium
+
+# XDG portals (needed for gpu-screen-recorder scripts)
+link "$DOTFILES/.config/xdg-desktop-portal"     ~/.config/xdg-desktop-portal
+link "$DOTFILES/.config/xdg-desktop-portal-wlr"  ~/.config/xdg-desktop-portal-wlr
+
+# Scripts (yazi management, gpu-screen-recorder, etc.)
 for f in "$DOTFILES"/Scripts/*; do
     [ -f "$f" ] && link "$f" ~/.local/bin/"$(basename "$f")"
 done
