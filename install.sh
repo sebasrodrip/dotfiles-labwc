@@ -1,17 +1,26 @@
 #!/usr/bin/env bash
-#MADE USING CLAUDE
+#MADE WITH CLAUDE
 set -e
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 mkdir -p ~/.config ~/.local/bin
 
-ln -sfn "$DOTFILES/config/labwc" ~/.config/labwc
-ln -sfn "$DOTFILES/config/yazi" ~/.config/yazi
-ln -sfn "$DOTFILES/config/noctalia" ~/.config/noctalia
+link() {
+    local src="$1" dst="$2"
+    if [ -e "$dst" ] && [ ! -L "$dst" ]; then
+        echo "!! $dst already exists and isn't a symlink — skipping. Back it up first."
+        return
+    fi
+    ln -sfn "$src" "$dst"
+    echo "linked $dst -> $src"
+}
 
-for f in "$DOTFILES"/local/bin/*; do
-	ln -sf "$f" ~/.local/bin/"$(basename "f")""
+link "$DOTFILES/.config/labwc"    ~/.config/labwc
+link "$DOTFILES/.config/yazi"     ~/.config/yazi
+link "$DOTFILES/.config/noctalia" ~/.config/noctalia
+
+for f in "$DOTFILES"/Scripts/*; do
+    [ -f "$f" ] && link "$f" ~/.local/bin/"$(basename "$f")"
 done
 
 echo "Dotfiles linked."
