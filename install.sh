@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-#MADE WITH CLAUDE
 set -e
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-mkdir -p ~/.config ~/.local/bin
+mkdir -p ~/.config
 
 link() {
     local src="$1" dst="$2"
@@ -33,13 +32,11 @@ link "$DOTFILES/.config/mpv"       ~/.config/mpv
 link "$DOTFILES/.config/mangohud"  ~/.config/mangohud
 link "$DOTFILES/.config/millennium" ~/.config/millennium
 
-# XDG portals (needed for gpu-screen-recorder scripts)
-link "$DOTFILES/.config/xdg-desktop-portal"     ~/.config/xdg-desktop-portal
+# XDG portals
+link "$DOTFILES/.config/xdg-desktop-portal"      ~/.config/xdg-desktop-portal
 link "$DOTFILES/.config/xdg-desktop-portal-wlr"  ~/.config/xdg-desktop-portal-wlr
 
-# Scripts (yazi management, gpu-screen-recorder, etc.)
-for f in "$DOTFILES"/Scripts/*; do
-    [ -f "$f" ] && link "$f" ~/.local/bin/"$(basename "$f")"
-done
+# Personal scripts
+link "$DOTFILES/Scripts" ~/Scripts
 
 echo "Dotfiles linked."
