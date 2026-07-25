@@ -17,3 +17,7 @@ output_path = "~/.config/subtui/config.toml"
 [theme.templates.user.satty]
 input_path = "~/.config/noctalia/templates/satty.toml"
 output_path = "~/.config/satty/config.toml"
+
+[theme.templates.user.yatline]
+input_path  = "$XDG_CONFIG_HOME/noctalia/templates/yatline-colors.lua"
+output_path = "$XDG_CONFIG_HOME/yazi/noctalia-colors.lua"

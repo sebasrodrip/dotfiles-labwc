@@ -36,3 +36,13 @@ prepend_previewers = [
   # For mounted hard disk/drive.
   { url = "/run/media/sebastian/**/*", run = "noop" },
 ]
+
+[[plugin.prepend_fetchers]]
+url   = "*"
+run   = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+url   = "*/"
+run   = "git"
+group = "git"

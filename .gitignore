@@ -1,0 +1,6 @@
+# Noctalia-generated theme outputs (regenerated automatically, don't track)
+.config/zellij/themes/noctalia.kdl
+.local/share/konsole/Noctalia.colorscheme
+.config/subtui/config.toml
+.config/satty/config.toml
+.config/yazi/noctalia-colors.lua

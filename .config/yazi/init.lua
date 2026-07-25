@@ -147,3 +147,86 @@ require("gvfs"):setup({
 if os.getenv("YAZI_SCRIPT_MODE") ~= "1" then
 	require("autosession"):setup()
 end
+
+require("git"):setup {
+	-- Order of status signs showing in the linemode
+	order = 1500,
+}
+
+local ok, noctalia = pcall(require, "noctalia-colors")
+if not ok then noctalia = {} end -- safe fallback if not generated yet
+
+require("yatline"):setup({
+	style_a = {
+		bg = noctalia.accent or "white",
+		fg = noctalia.on_accent or "black",
+		bg_mode = {
+			normal = noctalia.accent,
+			select = noctalia.tag_color,
+			un_set = noctalia.behind_remote_color,
+		},
+	},
+	style_b = { bg = noctalia.stashes_color or "brightblack", fg = noctalia.fg or "white" },
+	style_c = { bg = noctalia.bg or "black", fg = noctalia.fg or "white" },
+
+	header_line = {
+		left = {
+			section_a = {
+				{ type = "line", name = "tabs" },
+			},
+		},
+		right = {
+			section_c = {
+				{ type = "coloreds", custom = false, name = "githead" },
+			},
+			section_b = {
+				{ type = "string", name = "date", params = { "%X" } },
+			},
+		},
+	},
+
+	status_line = {
+		left = {
+			section_a = {
+				{ type = "string", name = "tab_mode" },
+			},
+			section_b = {
+				{ type = "string", name = "hovered_size" },
+			},
+			section_c = {
+				{ type = "string", name = "hovered_path" },
+				{ type = "coloreds", name = "count" },
+			},
+		},
+		right = {
+			section_a = {
+				{ type = "string", name = "cursor_position" },
+			},
+			section_b = {
+				{ type = "string", name = "cursor_percentage" },
+			},
+			section_c = {
+				{ type = "coloreds", name = "permissions" },
+			},
+		},
+	},
+})
+
+require("yatline-githead"):setup({
+	order = {
+		"branch", "remote", "tag", "commit",
+		"behind_ahead_remote", "stashes", "state",
+		"staged", "unstaged", "untracked",
+	},
+	branch_color         = noctalia.branch_color,
+	remote_branch_color  = noctalia.remote_branch_color,
+	tag_color            = noctalia.tag_color,
+	commit_color         = noctalia.commit_color,
+	behind_remote_color  = noctalia.behind_remote_color,
+	ahead_remote_color   = noctalia.ahead_remote_color,
+	stashes_color        = noctalia.stashes_color,
+	state_color          = noctalia.state_color,
+	staged_color         = noctalia.staged_color,
+	unstaged_color       = noctalia.unstaged_color,
+	untracked_color      = noctalia.untracked_color,
+})

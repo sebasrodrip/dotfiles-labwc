@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+#MADE USING CLAUDE
 set -e
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-mkdir -p ~/.config
+mkdir -p ~/.config ~/.local/share
 
 link() {
     local src="$1" dst="$2"
@@ -29,12 +30,15 @@ link "$DOTFILES/.config/noctalia" ~/.config/noctalia
 
 # Media / gaming
 link "$DOTFILES/.config/mpv"       ~/.config/mpv
-link "$DOTFILES/.config/mangohud"  ~/.config/mangohud
+link "$DOTFILES/.config/MangoHud"  ~/.config/MangoHud
 link "$DOTFILES/.config/millennium" ~/.config/millennium
 
 # XDG portals
 link "$DOTFILES/.config/xdg-desktop-portal"      ~/.config/xdg-desktop-portal
 link "$DOTFILES/.config/xdg-desktop-portal-wlr"  ~/.config/xdg-desktop-portal-wlr
+
+# Terminal emulator profiles
+link "$DOTFILES/.local/share/konsole" ~/.local/share/konsole
 
 # Personal scripts
 link "$DOTFILES/Scripts" ~/Scripts
