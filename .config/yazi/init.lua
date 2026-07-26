@@ -156,60 +156,33 @@ require("git"):setup {
 local ok, noctalia = pcall(require, "noctalia-colors")
 if not ok then noctalia = {} end -- safe fallback if not generated yet
 
+local config_dir = os.getenv("HOME") .. "/.config/yazi/"
+local ok, noctalia = pcall(dofile, config_dir .. "noctalia-colors.lua")
+
+-- If it fails, throw a notification so you know immediately, and set an ugly red so it's obvious!
+if not ok then
+	ya.notify({ title = "Yatline", content = "Could not load noctalia-colors.lua!", timeout = 5 })
+	noctalia = { accent = "#ff0000", bg = "#000000", fg = "#ffffff", stashes_color = "#555555" }
+end
+
 require("yatline"):setup({
+	-- 2. Pure dynamic mapping (removed the 'or "white"' fallbacks)
 	style_a = {
-		bg = noctalia.accent or "white",
-		fg = noctalia.on_accent or "black",
+		bg = noctalia.accent,
+		fg = noctalia.on_accent,
 		bg_mode = {
 			normal = noctalia.accent,
 			select = noctalia.tag_color,
 			un_set = noctalia.behind_remote_color,
 		},
 	},
-	style_b = { bg = noctalia.stashes_color or "brightblack", fg = noctalia.fg or "white" },
-	style_c = { bg = noctalia.bg or "black", fg = noctalia.fg or "white" },
+	
+	-- Keep style_b slightly different from style_c so the separator arrow stays visible
+	style_b = { bg = noctalia.stashes_color, fg = noctalia.fg },
+	style_c = { bg = noctalia.bg,            fg = noctalia.fg },
 
-	header_line = {
-		left = {
-			section_a = {
-				{ type = "line", name = "tabs" },
-			},
-		},
-		right = {
-			section_c = {
-				{ type = "coloreds", custom = false, name = "githead" },
-			},
-			section_b = {
-				{ type = "string", name = "date", params = { "%X" } },
-			},
-		},
-	},
-
-	status_line = {
-		left = {
-			section_a = {
-				{ type = "string", name = "tab_mode" },
-			},
-			section_b = {
-				{ type = "string", name = "hovered_size" },
-			},
-			section_c = {
-				{ type = "string", name = "hovered_path" },
-				{ type = "coloreds", name = "count" },
-			},
-		},
-		right = {
-			section_a = {
-				{ type = "string", name = "cursor_position" },
-			},
-			section_b = {
-				{ type = "string", name = "cursor_percentage" },
-			},
-			section_c = {
-				{ type = "coloreds", name = "permissions" },
-			},
-		},
-	},
+    -- Map your permissions dashes directly to your theme's fg so they don't vanish
+	permissions_s_fg = noctalia.fg,
 })
 
 require("yatline-githead"):setup({
