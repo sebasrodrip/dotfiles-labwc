@@ -7,3 +7,4 @@ systemctl --user stop graphical-session.target &
 
 ~/.local/bin/yazi-dbus.py &
 
+/usr/lib/polkit-kde-authentication-agent-1 &

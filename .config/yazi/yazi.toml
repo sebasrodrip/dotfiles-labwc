@@ -20,7 +20,7 @@ prepend_preloaders = [
   { url = "/run/user/1000/gvfs/**/*", run = "noop" },
 
   # For mounted hard disk/drive
-  { url = "/run/media/sebastian/**/*", run = "noop" },
+  #{ url = "/run/media/sebastian/**/*", run = "noop" },
 ]
 prepend_previewers = [
   # Allow to preview folder.
@@ -34,7 +34,7 @@ prepend_previewers = [
   { url = "/run/user/1000/gvfs/**/*", run = "noop" },
 
   # For mounted hard disk/drive.
-  { url = "/run/media/sebastian/**/*", run = "noop" },
+  #{ url = "/run/media/sebastian/**/*", run = "noop" },
 ]
 
 [[plugin.prepend_fetchers]]
