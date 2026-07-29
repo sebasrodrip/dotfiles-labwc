@@ -4,4 +4,4 @@
 .config/subtui/config.toml
 .config/satty/config.toml
 .config/yazi/noctalia-colors.lua
-.concig/yazi/gvfs.private
+.config/yazi/gvfs.private
