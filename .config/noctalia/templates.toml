@@ -1,15 +1,3 @@
-[catalog.zellij]
-name = "Zellij"
-category = "terminal"
-
-[theme.templates.user.zellij]
-input_path = "zellij.kdl"
-output_path = "$XDG_CONFIG_HOME/zellij/themes/noctalia.kdl"
-
-[theme.templates.user.konsole]
-input_path = "~/.config/noctalia/templates/konsole.colorscheme"
-output_path = "~/.local/share/konsole/Noctalia.colorscheme"
-
 [theme.templates.user.subtui]
 input_path = "~/.config/noctalia/templates/subtui.toml"
 output_path = "~/.config/subtui/config.toml"

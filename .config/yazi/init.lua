@@ -1,5 +1,3 @@
-require("recycle-bin"):setup()
-
 require("lin-decompress"):setup({
  -- Global commands for all .tar.* archives (e.g. .tar.lz, .tar.lzo, .tar.gz)
  global_tar_compressor = {
@@ -219,6 +217,7 @@ header_line = {
 			section_a = { { type = "string", name = "cursor_position" } },
 			section_b = { { type = "string", name = "cursor_percentage" } },
 			section_c = {
+				{ type = "coloreds", custom = false, name = "disk-usage"},			
 				{ type = "string", name = "hovered_file_extension", params = { true } },
 				{ type = "coloreds", name = "permissions" },
 			},
@@ -284,4 +283,51 @@ require("yatline-githead"):setup({
 	untracked_color      = noctalia.untracked_color,
 	untracked_symbol 	 = "?",
 	
+})
+
+require("yatline-disk-usage"):setup()
+
+-- YAMB
+-- You can configure your bookmarks by lua language
+local bookmarks = {}
+
+local path_sep = package.config:sub(1, 1)
+local home_path = ya.target_family() == "windows" and os.getenv("USERPROFILE") or os.getenv("HOME")
+if ya.target_family() == "windows" then
+  table.insert(bookmarks, {
+    tag = "Scoop Local",
+    path = (os.getenv("SCOOP") or home_path .. "\\scoop") .. "\\",
+    key = "p"
+  })
+  table.insert(bookmarks, {
+    tag = "Scoop Global",
+    path = (os.getenv("SCOOP_GLOBAL") or "C:\\ProgramData\\scoop") .. "\\",
+    key = "P"
+  })
+end
+table.insert(bookmarks, {
+  tag = "Desktop",
+  path = home_path .. path_sep .. "Desktop" .. path_sep,
+  key = "d"
+})
+
+require("yamb"):setup {
+  -- Optional, the path ending with path seperator represents folder.
+  bookmarks = bookmarks,
+  -- Optional, recieve notification everytime you jump.
+  jump_notify = true,
+  -- Optional, the cli of fzf.
+  cli = "fzf",
+  -- Optional, a string used for randomly generating keys, where the preceding characters have higher priority.
+  keys = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  -- Optional, the path of bookmarks
+  path = (ya.target_family() == "windows" and os.getenv("APPDATA") .. "\\yazi\\config\\bookmark") or
+        (os.getenv("HOME") .. "/.config/yazi/bookmark"),
+}
+
+
+require("yafg"):setup({
+	toggle_mode_key = "f1",
+	editor = "micro",
+	file_arg_format = "+{row} {file}",
 })

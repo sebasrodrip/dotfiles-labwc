@@ -8,7 +8,7 @@ let
 		yazi = "yazi";
 		mpv = "mpv";
 		fish = "fish";
-		zellij = "zellij";
+		wezterm = "wezterm";
 		noctalia = "noctalia";
 		xdg-desktop-portal = "xdg-desktop-portal";
 		xdg-desktop-portal-wlr = "xdg-desktop-portal-wlr";
@@ -40,22 +40,17 @@ in
 			source = create_symlink "${dotfiles}/.local/bin";
 			recursive = true;
 		};
-		".local/share/konsole" = {
-			source = create_symlink "${dotfiles}/.local/share/konsole";
-			recursive = true;
-		};
 	};
 
 	home.packages = with pkgs; [
 		yazi
 		mpv
 		fish
-		zellij
 		xdg-desktop-portal
 		xdg-desktop-portal-wlr
-		kdePackages.konsole
 		kdePackages.polkit-kde-agent-1
 		python3
+		wezterm
 	] ++ [
 		pkgs-unstable.noctalia
 		pkgs-unstable.pipx

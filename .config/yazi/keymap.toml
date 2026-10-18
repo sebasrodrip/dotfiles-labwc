@@ -1,6 +1,5 @@
 [mgr]
 prepend_keymap = [
-  { on = ["R","b"], run = "plugin recycle-bin", 										desc = "Open Recycle Bin menu" },
   { on = ["e","e"], run = "plugin lin-decompress -- --no password", 					desc = "Extract hovered."},
   { on = ["e","p"], run = "plugin lin-decompress", 										desc = "Extract hovered. Password"},
   { on = ["e","a"], run = "plugin lin-decompress -- --no-hover --tabselect=all", 		desc = "Extract selected in all tabs"},
@@ -78,8 +77,28 @@ prepend_keymap = [
   { on = [ "M", "T" ], run = "plugin gvfs -- automount-when-cd --disabled", 			desc = "Disable automount when cd to device under cwd" },
 
   # Toggle dragon to drag and drop files
-  { on = [ "C", "n" ], run = "shell -- dragon -x -i -T %s1 ",							desc = "Drag and drop" },
+  { on = [ "C", "n" ], run = "shell -- dragon -a -x -i -T %s",							desc = "Drag and drop" },
 
   #Save session on quit
   { on = [ "q" ], run = "plugin smart-quit",											desc = "Smart quit" },
+
+  #Steam Libraries
+  { on   = ["g", "s", "l"], run  = "cd ~/.steam/steam/steamapps", 						desc = "Local Steam"  },
+  { on   = ["g", "s", "g"], run  = "cd ~/GameVault/SteamLibrary/steamapps", 		    desc = "GameVault"  },
+
+  #YAMB Keymapping
+  { on = [ "u", "a" ], run = "plugin yamb -- save",										desc = "Add bookmark" },
+  { on = [ "u", "g" ], run = "plugin yamb -- jump_by_key",								desc = "Jump bookmark by key" },
+  { on = [ "u", "G" ], run = "plugin yamb -- jump_by_fzf", 								desc = "Jump bookmark by fzf" },
+  { on = [ "u", "d" ], run = "plugin yamb -- delete_by_key",						    desc = "Delete bookmark by key" },
+  { on = [ "u", "D" ], run = "plugin yamb -- delete_by_fzf", 							desc = "Delete bookmark by fzf" },
+  { on = [ "u", "A" ], run = "plugin yamb -- delete_all",								desc = "Delete all bookmarks" },
+  { on = [ "u", "r" ], run = "plugin yamb -- rename_by_key",							desc = "Rename bookmark by key" },
+  { on = [ "u", "R" ], run = "plugin yamb -- rename_by_fzf",							desc = "Rename bookmark by fzf" },
+
+  # YAFG
+  { on = [ "F", "G" ], run = "plugin yafg" },
+
+  { on = ["!"], run = 'shell "$SHELL" --block' },  
+  
 ]

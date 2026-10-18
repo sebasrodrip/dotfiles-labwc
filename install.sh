@@ -20,7 +20,7 @@ link "$DOTFILES/.config/labwc"    ~/.config/labwc
 
 # Shell / terminal
 link "$DOTFILES/.config/fish"     ~/.config/fish
-link "$DOTFILES/.config/zellij"  ~/.config/zellij
+link "$DOTFILES/.config/wezterm"  ~/.config/wezterm
 
 # File manager
 link "$DOTFILES/.config/yazi"    ~/.config/yazi
@@ -36,9 +36,6 @@ link "$DOTFILES/.config/millennium" ~/.config/millennium
 # XDG portals
 link "$DOTFILES/.config/xdg-desktop-portal"      ~/.config/xdg-desktop-portal
 link "$DOTFILES/.config/xdg-desktop-portal-wlr"  ~/.config/xdg-desktop-portal-wlr
-
-# Terminal emulator profiles
-link "$DOTFILES/.local/share/konsole" ~/.local/share/konsole
 
 # Personal scripts
 link "$DOTFILES/Scripts" ~/Scripts

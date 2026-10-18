@@ -4,12 +4,17 @@ show_hidden = true
 
 [opener]
 edit = [
-	{ run = 'micro "$@"', block = true, desc = "micro", for = "unix"}
+	{ run = "micro %s", block = true, desc = "micro", for = "unix" }
+]
+
+xournalpp = [
+	{ run = "xournalpp %s" , orphan = true, desc = "Xournal++"}
 ]
 
 [open]
 prepend_rules = [
-	{ mime = "text/*", use = "edit"}
+	{ mime = "text/*", use = "edit"},
+	{ url = "*.xopp", use = "xournalpp"}
 ]
 
 [plugin]
